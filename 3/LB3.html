@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <title>Лаб 3</title>
+      <script>
+         function enumNodes (node, delim) {
+          let idget = document.querySelector('#end')
+          for(var i = 0; i < node.childElementCount; i++) {
+          	var text = document.createTextNode(delim + node.children[i].localName);
+          	var brr = document.createElement("br");
+          	idget.appendChild(text);
+          	idget.appendChild(brr);
+          	if (node.children[i].id != "end") {
+          		enumNodes(node.children[i], delim + '---');
+          	}
+           }
+         }
+      </script>
+   </head>
+   <body>
+      <div>
+         <h1>Лабораторная 3</h1>
+         <h2>Захаров Кирилл</h2>
+         <p>___________</p>
+         <h3>Список:</h3>
+         <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+         </ul>
+      </div>
+      <form>
+         <button onclick="enumNodes(document.documentElement, ''); return false;">Показать дерево  страницы</button>
+      </form>
+      <div id="end">
+      </div>
+   </body>
+</html>
